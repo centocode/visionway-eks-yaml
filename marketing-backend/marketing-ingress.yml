@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: marketing-auto-ingress
+  annotations:
+    alb.ingress.kubernetes.io/group.name: "alb-visionway-eks"
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/healthcheck-path: /api
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  tls:
+  - hosts:
+      - marketing.visionway-prod-api.com
+  ingressClassName: alb-ingress
+  rules:
+    - host: "marketing.visionway-prod-api.com"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: marketing-auto
+                port:
+                  number: 3000

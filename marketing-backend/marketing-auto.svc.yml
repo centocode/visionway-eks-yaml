@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: marketing-auto
+  labels:
+    app: marketing-auto
+spec:
+  selector:
+    env: prod
+  type: ClusterIP  # Changed from NodePort to ClusterIP
+  ports:
+    - port: 3000  # Service port
+      targetPort: 3000  # Target port on the backend pods
