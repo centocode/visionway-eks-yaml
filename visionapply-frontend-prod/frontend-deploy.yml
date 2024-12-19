@@ -14,4 +14,27 @@ spec:
     spec:
       containers:
       - name: frontend-app
-        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/visionapply-frontend-prod:6883
+        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/visionapply-frontend-prod:6913
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 2
