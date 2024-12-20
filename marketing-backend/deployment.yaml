@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: marketing-auto-backend-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       env: prod
@@ -20,11 +20,11 @@ spec:
     spec:
       containers:
       - name: marketing-auto
-        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/marketing-automation-backend-prod:6924
+        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/marketing-automation-backend-prod:7034
         resources:
           requests:
-            memory: "128Mi"
+            memory: "256Mi"
             cpu: "250m"
           limits:
-            memory: "256Mi"
+            memory: "512Mi"
             cpu: "500m"
