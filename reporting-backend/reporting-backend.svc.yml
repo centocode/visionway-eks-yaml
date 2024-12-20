@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: reporting-backend
+  labels:
+    app: reporting-backend
+spec:
+  selector:
+    env: prod
+  type: ClusterIP  # Changed from NodePort to ClusterIP
+  ports:
+    - port: 3001  # Service port
+      targetPort: 3001  # Target port on the backend pods
