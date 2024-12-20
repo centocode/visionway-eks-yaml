@@ -61,9 +61,11 @@ stages:
               sed -i "s|image: .*|image: ${IMAGE_TAG}|g" deployment.yaml
               git config user.email "imran@centocode.com"
               git config user.name "centocode"
+              git pull origin main --rebase
               git fetch origin
-              git checkout main  # Explicitly switch to the master branch
+              git checkout main
               git add deployment.yaml
               git commit -m "Update deployment images to ${IMAGE_TAG}"
               git push origin main
-            displayName: 'Update Deployment YAML in GitHub'
+              pwd
+            displayName: 'Update Deployment YAML and Cleanup Workspace'
