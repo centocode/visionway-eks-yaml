@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vibrant-backend-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      env: prod
+    matchExpressions:
+      - key: env
+        operator: In
+        values: 
+          - prod
+  template:
+    metadata:
+      name: vibrant-pod
+      labels:
+        env: prod
+    spec:
+      containers:
+      - name: vibrant
+        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/vibrant-backend-prod:6474

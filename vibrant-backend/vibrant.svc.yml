@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vibrant-backend
+  labels:
+    app: vibrant-backend
+spec:
+  selector:
+    env: prod
+  type: ClusterIP  # Changed from NodePort to ClusterIP
+  ports:
+    - port: 9000  # Service port
+      targetPort: 9000  # Target port on the backend pods

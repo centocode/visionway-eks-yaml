@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vibrant-ingress
+  annotations:
+    alb.ingress.kubernetes.io/group.name: "alb-visionway-eks"
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/healthcheck-path: /api
+    alb.ingress.kubernetes.io/target-type: ip
+  
+spec:
+  tls:
+  - hosts:
+      - api.vibrantstudies.com
+  ingressClassName: alb-ingress
+  rules:
+    - host: "api.vibrantstudies.com"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vibrant-backend
+                port:
+                  number: 9000
