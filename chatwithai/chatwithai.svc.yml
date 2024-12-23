@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: chatwithai
+  labels:
+    app: chatwithai
+spec:
+  selector:
+    env: prod
+  type: ClusterIP  # Changed from NodePort to ClusterIP
+  ports:
+    - port: 8100  # Service port
+      targetPort: 8100  # Target port on the backend pods
