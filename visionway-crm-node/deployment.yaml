@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visionway-crm-node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      env: prod
+    matchExpressions:
+      - key: env
+        operator: In
+        values: 
+          - prod
+  template:
+    metadata:
+      name: visionway-crm-node
+      labels:
+        env: prod
+    spec:
+      containers:
+      - name: visionway-crm-node
+        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/visionway-crm-node-prod:8168
+        resources:
+          requests:
+            memory: "9Gi"
+            cpu: "500m"
+          limits:
+            memory: "10Gi"
+            cpu: "1"
