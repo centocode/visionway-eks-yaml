@@ -1,23 +1,23 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: ai-course-finder-app
+  name: ai-course-finder
 spec:
   replicas: 2
   selector:
     matchLabels:
-      env: prod
+      env: ai-course-prod
     matchExpressions:
       - key: env
         operator: In
         values: 
-          - prod
+          - ai-course-prod
   template:
     metadata:
       name: ai-course-pod
       labels:
-        env: prod
+        env: ai-course-prod
     spec:
       containers:
       - name: ai-course
-        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/ai-course-finder-prod:6122
+        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/ai-course-finder-prod:8480
