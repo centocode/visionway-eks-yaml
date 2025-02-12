@@ -6,7 +6,7 @@ metadata:
     app: ai-course-finder
 spec:
   selector:
-    env: prod
+    env: ai-course-prod
   type: ClusterIP  # Change from NodePort to ClusterIP
   ports:  # Corrected the typo here
     - port: 8200  # Service port
