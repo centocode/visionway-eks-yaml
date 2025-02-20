@@ -6,7 +6,7 @@ metadata:
     app: marketing-auto
 spec:
   selector:
-    env: prod
+    env: marketing-backend-prod
   type: ClusterIP  # Changed from NodePort to ClusterIP
   ports:
     - port: 3000  # Service port
