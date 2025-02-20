@@ -6,21 +6,21 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      env: prod
+      env: reporting-backend-prod
     matchExpressions:
       - key: env
         operator: In
         values: 
-          - prod
+          - reporting-backend-prod
   template:
     metadata:
       name: reporting-backend-pod
       labels:
-        env: prod
+        env: reporting-backend-prod
     spec:
       containers:
       - name: reporting-backend
-        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/visionway-reporting-backend-prod:6961
+        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/visionway-reporting-backend-prod:8733
         resources:
           requests:
             memory: "128Mi"
