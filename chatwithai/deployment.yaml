@@ -6,18 +6,18 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      env: prod
+      env: chatwithai-prod
     matchExpressions:
       - key: env
         operator: In
         values: 
-          - prod
+          - chatwithai-prod
   template:
     metadata:
       name: chatwithai-pod
       labels:
-        env: prod
+        env: chatwithai-prod
     spec:
       containers:
       - name: chatwithai
-        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/visionway-chatwithai-prod:6201
+        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/visionway-chatwithai-prod:8659
