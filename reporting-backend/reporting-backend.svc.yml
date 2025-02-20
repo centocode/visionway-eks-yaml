@@ -6,7 +6,7 @@ metadata:
     app: reporting-backend
 spec:
   selector:
-    env: prod
+    env: reporting-backend-prod
   type: ClusterIP  # Changed from NodePort to ClusterIP
   ports:
     - port: 3001  # Service port
