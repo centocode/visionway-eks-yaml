@@ -6,7 +6,7 @@ metadata:
     app: visionapply-frontend
 spec:
   selector:
-    env: prod
+    env: frontend-prod
   type: ClusterIP
   ports:
     - port: 80
