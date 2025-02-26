@@ -6,22 +6,15 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      env: prod
+      env: frontend-prod
   template:
     metadata:
       labels:
-        env: prod
+        env: frontend-prod
     spec:
       containers:
       - name: frontend-app
-        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/visionapply-frontend-prod:6913
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "250m"
-          limits:
-            memory: "256Mi"
-            cpu: "500m"
+        image: 650378210006.dkr.ecr.ap-south-1.amazonaws.com/visionapply-frontend-prod:8898
         livenessProbe:
           httpGet:
             path: /
